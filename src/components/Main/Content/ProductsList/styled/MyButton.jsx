@@ -1,7 +1,8 @@
 import styled from "styled-components";
 
 const MyButton = styled.button`
-  padding: ${props => props.padding};
+  padding: 10px 15px;
+  font-size: 14px;
   margin: 5px;
   border: none;
   background: linear-gradient(
@@ -12,7 +13,7 @@ const MyButton = styled.button`
   color: #fff;
   cursor: pointer;
   transition: 0.3s;
-  text-shadow: 0px 2px 1px #111;
+  text-shadow: 0px 1px 1px #111;
   &: hover {
     color: #fff;
     background: linear-gradient(

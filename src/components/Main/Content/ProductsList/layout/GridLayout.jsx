@@ -14,7 +14,9 @@ const GridLayout = ({ data }) => {
         <div
           key={item.id}
           style={{
-            background: "#efefef",
+            background: `linear-gradient(#e0e0e0 ,#efefef, #e0e0e0 )`,
+            border: "2px solid #e4e3e3",
+            borderRadius: "5px",
             display: "grid",
             justifyItems: "center",
             gridTemplateColumns: "1fr",
