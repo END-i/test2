@@ -1,7 +1,7 @@
-export function cartData(num) {
+export function cartData(car) {
   return {
     type: "CART_DATA",
-    cartData: num
+    cartData: car
   };
 }
 

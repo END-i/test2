@@ -6,10 +6,12 @@ import { addToCart } from "../../../../actions/actionAddToCart";
 
 class Product extends Component {
   addToCart = () => {
+    const { data, cartData } = this.props;
     const id = window.location.pathname.replace(/\D+/g, "");
-    const item = this.props.data[id];
+    const item = data[id];
 
-    this.props.addToCart(item);
+    const result = [item, ...cartData];
+    this.props.addToCart(result);
   };
 
   render() {
@@ -41,14 +43,7 @@ class Product extends Component {
               <h1>{item.product_name}</h1>
             </li>
             <li style={{ display: "flex" }}>
-              <h2 style={item.sale && { textDecorationLine: "line-through" }}>
-                {item.price}
-              </h2>
-              {item.sale && (
-                <h2 style={{ marginLeft: "10px" }}>
-                  {`$${item.price.replace(/[^.\d]+/g, "") - 2000}`}
-                </h2>
-              )}
+              <h2>{item.price}</h2>
             </li>
             <li>Model: {item.model}</li>
             <li>Year: {item.year}</li>
@@ -109,9 +104,15 @@ const mapDispatchToProps = dispatch => {
   };
 };
 
+const mapStateToProps = state => {
+  return {
+    cartData: state.cartData
+  };
+};
+
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Product)
 );

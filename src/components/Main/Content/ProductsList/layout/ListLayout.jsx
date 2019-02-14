@@ -7,7 +7,9 @@ import { addToCart } from "../../../../../actions/actionAddToCart";
 
 class ListLayout extends React.Component {
   addCarToCart = car => () => {
-    this.props.addToCart(car);
+    const { addToCart, cartData } = this.props;
+    let result = [car, ...cartData];
+    addToCart(result);
   };
 
   render() {
@@ -84,6 +86,12 @@ class ListLayout extends React.Component {
   }
 }
 
+const mapStateToProps = state => {
+  return {
+    cartData: state.cartData
+  };
+};
+
 const mapDispatchToProps = dispatch => {
   return {
     addToCart: car => dispatch(addToCart(car))
@@ -92,7 +100,7 @@ const mapDispatchToProps = dispatch => {
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(ListLayout)
 );

@@ -24,7 +24,7 @@ const MyButton = styled.button`
   &: active {
     background: linear-gradient(
       ${props => props.color2} 0%,
-      ${props => props.color1} 100%
+      ${props => props.color1} 50%
     );
   }
 `;
