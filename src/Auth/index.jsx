@@ -6,8 +6,8 @@ export default class Auth {
   expiresAt;
 
   auth0 = new auth0.WebAuth({
-    domain: "end-i.auth0.com",
-    clientID: "sOsQFTEvrxxlKefRCOau0yYnAc7QpIzX",
+    domain: "klik23-1.auth0.com",
+    clientID: "X5Ry54j2hiDOQg4u409kZh0MpBmYicKC",
     redirectUri: "http://localhost:3000/callback",
     responseType: "token id_token",
     scope: "openid"
@@ -32,7 +32,7 @@ export default class Auth {
       if (authResult && authResult.accessToken && authResult.idToken) {
         this.setSession(authResult);
       } else if (err) {
-        window.location = "/home";
+        window.location = "/";
         console.log(err);
         console.log(
           `Error: ${err.error}. Check the console for further details.`
@@ -60,7 +60,7 @@ export default class Auth {
     this.expiresAt = expiresAt;
 
     // navigate to the home route
-    window.location = "/home";
+    window.location = "/";
   }
 
   renewSession() {
@@ -87,7 +87,7 @@ export default class Auth {
     localStorage.removeItem("isLoggedIn");
 
     // navigate to the home route
-    window.location = "/home";
+    window.location = "/";
   }
 
   isAuthenticated() {
