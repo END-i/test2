@@ -6,7 +6,6 @@ export function cartData(car) {
 }
 
 export function addToCart(car) {
-  console.log(car);
   return dispatch => {
     dispatch(cartData(car));
   };
