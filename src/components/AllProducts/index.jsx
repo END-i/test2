@@ -1,18 +1,25 @@
 import React, { Component, Fragment } from 'react'
-import GridView from './layout/GridView'
-import ListView from './layout/ListView'
+import { connect } from 'react-redux'
+
+// import GridView from './GridView'
+// import ListView from './ListView'
 
 class AllProducts extends Component {
   state = { list: true }
 
   render() {
+    console.log('render', this.props.products)
     return (
       <Fragment>
-        {list && <ListView />}
-        {!list && <GridView />}
+        {/* {list && <ListView />}
+        {!list && <GridView />} */}
       </Fragment>
     )
   }
 }
 
-export default AllProducts
+const mapStateToProps = state => ({
+  products: state.products,
+})
+
+export default connect(mapStateToProps)(AllProducts)
