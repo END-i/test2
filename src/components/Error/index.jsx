@@ -1,10 +1,13 @@
 import React, { Component } from 'react'
-
-import { Wrapper } from './styled'
+import { Wrapper, Background } from './styled'
 
 class Eror extends Component {
   render() {
-    return <Wrapper>Eror</Wrapper>
+    return (
+      <Background>
+        <Wrapper>Eror</Wrapper>
+      </Background>
+    )
   }
 }
 

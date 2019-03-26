@@ -1,12 +1,12 @@
 import { createStore, applyMiddleware, combineReducers } from 'redux'
 import thunk from 'redux-thunk'
 import { products } from './products/reducers'
-import { toggleList } from './toggleList/reducers'
+import { viewProducts } from './viewProducts/reducers'
 import { cartData, cartList } from './cart/reducers'
 
 const rootReducer = combineReducers({
+  viewProducts,
   products,
-  toggleList,
   cartData,
   cartList,
 })

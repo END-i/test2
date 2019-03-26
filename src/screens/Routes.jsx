@@ -1,5 +1,5 @@
 import React, { Fragment, Component } from 'react'
-import { Route, Switch } from 'react-router-dom'
+import { withRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
 
 import Products from './Products'
@@ -24,13 +24,13 @@ class Routes extends Component {
     const data = await docRef.docs.map(item => {
       return { ...item.data() }
     })
+
     setTimeout(() => {
       data
         ? this.setState({ loading: false }, () => {
             this.props.getProducts(data)
           })
-        : this.setState({ error: true })
-      console.log(data)
+        : this.setState({ loading: false, error: true })
     }, 500)
   }
 
@@ -39,15 +39,19 @@ class Routes extends Component {
     return (
       <Fragment>
         <Header />
-        <Switch>
+        <div style={{minHeight: 'calc(100vh - 144px)'}}>
+        <Switch> 
           <Route exact path="/" component={Products} />
-          <Route path="/:id" component={Details} />
-          <Route path="/add_new_product" component={AddNewProduct} />
-          <Route component={NotFound} />
+          <Route strict path="/product_id/:id" component={Details} />
+          <Route exact path="/add_new_product" component={AddNewProduct} />
+          <Route exact path="/error" component={Error} />
+          <Route exact strict path="/not_found" component={NotFound} />
+          <Redirect from='*' to='/not_found' />>
         </Switch>
+        </div>
         <Footer />
-        <Error error={error} />
         <Loading loading={loading} />
+        <Error error={error} />
       </Fragment>
     )
   }
@@ -57,7 +61,7 @@ const mapDispatchToProps = dispatch => ({
   getProducts: data => dispatch(getProducts(data)),
 })
 
-export default connect(
+export default withRouter(connect(
   null,
   mapDispatchToProps
-)(Routes)
+)(Routes))

@@ -1,42 +1,59 @@
 import styled from 'styled-components'
 
-export const MyButton = styled.button`
-  padding: 10px 15px;
-  font-size: 14px;
-  margin: 5px;
-  border: none;
-  background: linear-gradient(
-    ${props => props.color1} 0%,
-    ${props => props.color2} 50%
-  );
-  border-radius: 5px;
-  color: #fff;
-  cursor: pointer;
-  transition: 0.3s;
-  text-shadow: 0px 1px 1px #111;
-  :hover {
-    color: #fff;
-    background: linear-gradient(
-      ${props => props.color1} 0%,
-      ${props => props.color2} 100%
-    );
-  }
-  :active {
-    background: linear-gradient(
-      ${props => props.color2} 0%,
-      ${props => props.color1} 50%
-    );
-  }
+export const Grid = styled.div`
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+`
+export const Wrapper = styled.div`
+  min-height: calc(100vh - 144px);
 `
 
-export const SaleTag = styled.b`
-  position: absolute;
-  top: 65px;
-  left: -30px;
-  background: linear-gradient(#75e000 0%, #517925 50%);
-  color: #ffffff;
-  text-shadow: 0px 1px 1px #000;
-  width: 100px;
-  padding: 4px 15px;
-  border-radius: 3px;
+export const List = styled.div``
+
+export const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 10px 0;
+  background: #0e3d88d1;
+  border-radius: 0 20px 20px 0;
+  margin: 10px 0;
+  margin-right: 10px;
+  color: #fff;
+`
+
+export const MyImage = styled.img`
+  padding: 0px 30px;
+  width: 50%;
+  height: 100%;
+`
+
+export const LeftRow = styled.div`
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: flex-start;
+`
+
+export const LeftColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+`
+export const RightColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin: 0 50px;
+`
+
+export const MyButton = styled.button`
+  cursor: pointer;
+  border: none;
+  box-shadow: none;
+  background: #111;
+  color: #fff;
+  font-size: 30px;
+  border-radius: 10px;
+  padding: 10px 20px;
 `

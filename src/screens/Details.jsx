@@ -1,8 +1,10 @@
 import React, { Component } from 'react'
 
+import Description from '../components/Description'
+
 class Details extends Component {
   render() {
-    return <div>Details</div>
+    return <Description />
   }
 }
 

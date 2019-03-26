@@ -1,15 +1,15 @@
 import styled from 'styled-components'
 
-export const MyLogo = styled.h2`
+export const MyLogo = styled.img`
   cursor: pointer;
-  margin: 0;
-  color: #9e9e9e;
-  user-select: none;
+  width: 50px;
+  opacity: 0.5;
+  transition: 0.3s;
   :hover {
-    color: #5f5f61;
+    opacity: 1;
   }
   :active {
-    color: #111;
+    opacity: 1;
   }
 `
 
