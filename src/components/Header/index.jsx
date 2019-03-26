@@ -5,8 +5,19 @@ import { withRouter } from 'react-router-dom'
 
 import { MyButton, MyLogo } from './styled'
 import { toggleViewProducts } from '../../store/viewProducts/actions'
+import { openCloseModalWindow } from '../../store/modalWindow/actions'
 
-const Header = ({toggleView}) => {
+import {auth } from '../../firebase'
+
+const Header = ({ toggleView, viewProducts, openModal }) => {
+  const path = window.location.pathname
+
+  const logOut = () => {
+    auth
+      .signOut()
+      .then(result => console.log(result, 'sing out: success'))
+      .catch(error => console.log(error, 'sing out: error'))
+  }
   return (
     <div
       style={{
@@ -19,15 +30,27 @@ const Header = ({toggleView}) => {
       }}
     >
       <Link to="/" style={{ margin: 'auto 0' }}>
-        <MyLogo src={require('./car.png')} alt=""/>
+        <MyLogo src={require('./car.png')} alt="" />
       </Link>
+
       <div style={{ display: 'flex' }}>
-        <MyButton onClick={() => toggleView(true)}>
-          <i className="fas fa-list" />
-        </MyButton>
-        <MyButton onClick={() => toggleView(false)}>
-          <i className="fas fa-th" />
-        </MyButton>
+        <div
+          className={path === '/' ? 'block' : 'none'}
+          style={{ display: 'flex' }}
+        >
+          <MyButton
+            onClick={() => toggleView(true)}
+            className={viewProducts && 'none'}
+          >
+            <i className="fas fa-list" />
+          </MyButton>
+          <MyButton
+            onClick={() => toggleView(false)}
+            className={!viewProducts && 'none'}
+          >
+            <i className="fas fa-th" />
+          </MyButton>
+        </div>
         <MyButton>
           <small
             style={{
@@ -49,15 +72,16 @@ const Header = ({toggleView}) => {
           </small>
           <i className="fas fa-shopping-cart" />
         </MyButton>
-        <MyButton>Log Out</MyButton>
-        <MyButton>Log In</MyButton>
+        <MyButton onClick={logOut}>Log Out</MyButton>
+        <MyButton onClick={() => openModal(true)}>Log In</MyButton>
       </div>
     </div>
   )
 }
 
 const mapDispatchToProps = dispatch => ({
-    toggleView: bool => dispatch(toggleViewProducts(bool)),
+  toggleView: bool => dispatch(toggleViewProducts(bool)),
+  openModal: bool => dispatch(openCloseModalWindow(bool)),
 })
 
 const mapStateToProps = state => ({

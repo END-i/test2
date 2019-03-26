@@ -11,6 +11,7 @@ import Error from '../components/Error'
 
 import Header from '../components/Header'
 import Footer from '../components/Footer'
+import AuthModal from '../components/AuthModal'
 
 import { getProducts } from '../store/products/actions'
 
@@ -52,6 +53,7 @@ class Routes extends Component {
         <Footer />
         <Loading loading={loading} />
         <Error error={error} />
+        <AuthModal />
       </Fragment>
     )
   }

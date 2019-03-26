@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
   right: 0;
   background-color: white;
   transition: 0.5s;
+  z-index: 99999;
 `
 
 export const Image = styled.img`
