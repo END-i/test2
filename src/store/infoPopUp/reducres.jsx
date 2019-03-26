@@ -1,6 +1,6 @@
-export function modalWindow(state = false, action) {
+export function infoPopUp(state = false, action) {
   switch (action.type) {
-    case 'OPEN_CLOSE_MODAL_WINDOW':
+    case 'VIEW_INFO_POP_UP':
       return action.payload
     default:
       return state

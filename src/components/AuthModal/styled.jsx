@@ -14,6 +14,9 @@ export const Wrapper = styled.div`
 `
 
 export const CloseButton = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   right: 15px;
   top: 15px;
@@ -21,6 +24,10 @@ export const CloseButton = styled.div`
   font-size: 30px;
   font-weight: bold;
   cursor: pointer;
+  border-radius: 100%;
+  background: #fff;
+  width: 30px;
+  height: 30px;
 `
 
 export const List = styled.ul`
@@ -37,6 +44,9 @@ export const ListItem = styled.li`
   padding: 5px 15px;
   text-align: center;
   cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 `
 
 export const Form = styled.form`
@@ -52,4 +62,8 @@ export const MyInput = styled.input`
 export const MyButton = styled.button`
   font-size: 25px;
   padding: 10px;
+`
+export const SocialIcon = styled.img`
+  width: 30px;
+  margin-left: 25px;
 `

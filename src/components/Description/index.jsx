@@ -14,14 +14,14 @@ const Description = ({ products }) => {
   if (!products) return null
 
   return (
-      <Wrapper>
-        <img src={unit.image} alt="car" />
-        <ul>
-          <li>{unit.product_name}</li>
-          <li>{unit.price}</li>
-          <li>{unit.modal}</li>
-        </ul>
-      </Wrapper>
+    <Wrapper>
+      <img src={unit.image} alt="car" />
+      <ul>
+        <li>{unit.product_name}</li>
+        <li>{unit.price}</li>
+        <li>{unit.modal}</li>
+      </ul>
+    </Wrapper>
   )
 }
 
