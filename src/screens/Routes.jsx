@@ -56,7 +56,6 @@ class Routes extends Component {
     return (
       <Fragment>
         <Header />
-        <InfoPopUpWin />
         <div style={{ minHeight: 'calc(100vh - 144px)' }}>
           <Switch>
             <Route exact path="/" component={Products} />
@@ -71,7 +70,6 @@ class Routes extends Component {
         <Loading loading={loading} />
         <Error error={error} />
         <AuthModal />
-        
       </Fragment>
     )
   }
