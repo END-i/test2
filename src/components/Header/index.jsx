@@ -1,12 +1,15 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 
-import { Wrapper, Cart, MyButton,MyButtonCyrcle,  MyLogo, User, Row,  } from './styled'
+import { Wrapper, MyButton, MyButtonCyrcle, MyLogo } from './styled'
 
 const Header = () => {
   return (
     <Wrapper>
       <MyLogo>
-        <img src={require('./media/logo2.png')} alt="" />
+        <Link to="/">
+          <img src={require('./media/logo2.png')} alt="" />
+        </Link>
       </MyLogo>
 
       <MyButtonCyrcle>

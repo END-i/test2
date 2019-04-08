@@ -1,7 +1,6 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
+  background: #00000010;
+  flex-grow: 1;
 `

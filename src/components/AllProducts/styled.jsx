@@ -5,7 +5,7 @@ export const Grid = styled.div`
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
 `
 export const Wrapper = styled.div`
-  min-height: calc(100vh - 144px);
+  width: 100%;
 `
 
 export const List = styled.div``
@@ -15,17 +15,18 @@ export const ListWrapper = styled.div`
   flex-direction: row;
   justify-content: space-between;
   padding: 10px 0;
-  background: #0e3d88d1;
+  background: #2196f3ba;
   border-radius: 0 20px 20px 0;
   margin: 10px 0;
   margin-right: 10px;
   color: #fff;
+  box-shadow: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
+    0px 1px 10px 0px #0000001f;
 `
 
 export const MyImage = styled.img`
   padding: 0px 30px;
-  width: 50%;
-  height: 100%;
+  width: 200px;
 `
 
 export const LeftRow = styled.div`
@@ -38,22 +39,45 @@ export const LeftRow = styled.div`
 export const LeftColumn = styled.div`
   display: flex;
   flex-direction: column;
+  h1{
+    margin-bottom: 0;
+  }
+  h2{
+    margin-top: 0;
+  }
 `
 export const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  align-items: center;
+  justify-content: center;
   margin: 0 50px;
 `
 
-export const MyButton = styled.button`
+export const MyButton = styled.div`
+  padding: 10px 15px;
+  font-size: 1.3rem;
+  font-weight: 700;
+  transition: 250ms;
+  border-radius: 4px;
+  text-transform: uppercase;
+  user-select: none;
   cursor: pointer;
-  border: none;
-  box-shadow: none;
-  background: #111;
   color: #fff;
-  font-size: 30px;
-  border-radius: 10px;
+  background: rgba(77, 144, 6, 0.5);
+  text-align: center;
+  :hover {
+    background: rgb(77, 144, 6);
+    transform: scale(1.05);
+  }
+  :active {
+    background: rgba(0, 0, 0, 0.1);
+    transform: scale(0.9);
+  }
+`
+export const Price = styled.h2`
+  color: rgb(175, 216, 25);
+  background: #00000030;
   padding: 10px 20px;
+  width: 150px;
+  text-align: center;
 `

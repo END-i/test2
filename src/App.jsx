@@ -1,6 +1,6 @@
 import React, { Fragment, Component } from 'react'
 
-import Routes from './screens/Routes'
+import Routes from './Routes'
 import GlobalStyle from './GlobalStyle'
 
 class App extends Component {

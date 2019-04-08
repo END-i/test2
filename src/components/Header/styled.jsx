@@ -1,6 +1,7 @@
 import styled from 'styled-components'
 
 export const Wrapper = styled.div`
+  position: relative;
   display: flex;
   align-items: center;
   color: #fff;
@@ -11,8 +12,10 @@ export const Wrapper = styled.div`
 `
 export const MyLogo = styled.div`
   flex-grow: 1;
+  position: relative;
   img {
     height: 40px;
+    cursor: pointer;
   }
 `
 export const MyButton = styled.div`
@@ -92,7 +95,6 @@ export const Cart = styled.div`
     top: 15p;
   }
 `
-
 export const User = styled.div`
   display: flex;
   align-items: center;

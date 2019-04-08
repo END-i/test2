@@ -2,8 +2,7 @@ import styled from 'styled-components'
 
 export const Wrapper = styled.div`
   position: absolute;
-  display: ${({ display }) => display};
-  opacity: ${({ visibility }) => visibility};
+  display: flex;
   top: 0;
   bottom: 0;
   left: 0;

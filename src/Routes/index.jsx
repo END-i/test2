@@ -1,6 +1,8 @@
-import React, { Fragment, Component } from 'react'
+import React, { Component } from 'react'
 import { withRouter, Route, Switch, Redirect } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+import { Wrapper, Content } from './styled'
 
 import Products from './Products'
 import Details from './Details'
@@ -11,7 +13,6 @@ import Error from '../components/Error'
 import Header from '../components/Header'
 import Footer from '../components/Footer'
 import AuthModal from '../components/AuthModal'
-import InfoPopUpWin from '../components/InfoPopUpWin'
 
 import { getProducts } from '../store/products/actions'
 import { setUser } from '../store/authorizationStatus/actions'
@@ -48,15 +49,20 @@ class Routes extends Component {
     auth.onAuthStateChanged(user => {
       if (user) {
         this.props.setUser(user)
-      } 
+      }
     })
   }
   render() {
     const { loading, error } = this.state
+
+    if (loading) return <Loading loading={loading}/>
+
+    if (error) return <Error error={error}/>
+
     return (
-      <Fragment>
+      <Wrapper>
         <Header />
-        <div style={{ minHeight: 'calc(100vh - 144px)' }}>
+        <Content>
           <Switch>
             <Route exact path="/" component={Products} />
             <Route strict path="/product_id/:id" component={Details} />
@@ -65,12 +71,9 @@ class Routes extends Component {
             <Route exact strict path="/not_found" component={NotFound} />
             <Redirect from="*" to="/not_found" />>
           </Switch>
-        </div>
+        </Content>
         <Footer />
-        <Loading loading={loading} />
-        <Error error={error} />
-        <AuthModal />
-      </Fragment>
+      </Wrapper>
     )
   }
 }
