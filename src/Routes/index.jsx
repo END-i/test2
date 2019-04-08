@@ -1,65 +1,65 @@
-import React, { Component } from 'react'
-import { withRouter, Route, Switch, Redirect } from 'react-router-dom'
-import { connect } from 'react-redux'
+import React, { Fragment, useEffect, useState } from "react";
+import { withRouter, Route, Switch, Redirect } from "react-router-dom";
+import { connect } from "react-redux";
 
-import { Wrapper, Content } from './styled'
+import { Wrapper, Content } from "./styled";
 
-import Products from './Products'
-import Details from './Details'
-import NotFound from './NotFound'
-import AddNewProduct from './AddNewProduct'
-import Loading from '../components/Loading'
-import Error from '../components/Error'
-import Header from '../components/Header'
-import Footer from '../components/Footer'
-import AuthModal from '../components/AuthModal'
+import Products from "./Products";
+import Details from "./Details";
+import NotFound from "./NotFound";
+import AddNewProduct from "./AddNewProduct";
+import Loading from "../components/Loading";
+import Error from "../components/Error";
+import Header from "../components/Header";
+import Footer from "../components/Footer";
+import ModalWindowAuth from "../components/ModalWindowAuth/";
 
-import { getProducts } from '../store/products/actions'
-import { setUser } from '../store/authorizationStatus/actions'
+import { getProducts } from "../store/products/actions";
+import { signIn } from "../store/authorizationStatus//actions";
 
-import { firestore, auth } from '../firebase'
+import { firestore, auth } from "../firebase";
 
-class Routes extends Component {
-  state = { loading: true, error: false }
+const Routes = ({ signIn, getProducts, products }) => {
+  const [isLoading, setIsLoading] = useState(true);
+  const [isError, setIsError] = useState(false);
 
-  componentDidMount = async () => {
-    this.datafromFirestore()
-    this.checkUser()
-  }
+  useEffect(() => {
+    if (!products) {
+      datafromFirestore();
+    }
+    checkUser();
+  });
 
-  datafromFirestore = async () => {
-    const docRef = await firestore.collection('products').get()
+  const datafromFirestore = async () => {
+    const docRef = await firestore.collection("products").get();
     const data = await docRef.docs.map(item => {
-      return { ...item.data() }
-    })
-    this.animationLoading(data)
-  }
+      return { ...item.data() };
+    });
+    getProducts(data);
+    animationLoading(data)
+  };
 
-  animationLoading = data => {
+  const animationLoading = data => {
     setTimeout(() => {
-      data
-        ? this.setState({ loading: false }, () => {
-            this.props.getProducts(data)
-          })
-        : this.setState({ loading: false, error: true })
-    }, 500)
-  }
+      data ? setIsLoading(false) : setIsError(true);
+    }, 500);
+  };
 
-  checkUser = () => {
+  const checkUser = () => {
     auth.onAuthStateChanged(user => {
       if (user) {
-        this.props.setUser(user)
+        signIn(user);
       }
-    })
-  }
-  render() {
-    const { loading, error } = this.state
+    });
+  };
+  console.log(isLoading, isError);
 
-    if (loading) return <Loading loading={loading}/>
+  if (isLoading) return <Loading loading={isLoading} />;
 
-    if (error) return <Error error={error}/>
+  if (isError) return <Error error={isError} />;
 
-    return (
+  return (
+    <Fragment>
       <Wrapper>
         <Header />
         <Content>
@@ -74,18 +74,23 @@ class Routes extends Component {
         </Content>
         <Footer />
       </Wrapper>
-    )
-  }
-}
+      <ModalWindowAuth />
+    </Fragment>
+  );
+};
 
 const mapDispatchToProps = dispatch => ({
   getProducts: data => dispatch(getProducts(data)),
-  setUser: user => dispatch(setUser(user)),
-})
+  signIn: user => dispatch(signIn(user))
+});
+
+const mapStateToProps = state => ({
+  products: state.products
+});
 
 export default withRouter(
   connect(
-    null,
+    mapStateToProps,
     mapDispatchToProps
   )(Routes)
-)
+);

@@ -12,7 +12,7 @@ const AllProducts = ({ products, viewProducts }) => {
 
   return (
     <Wrapper>
-      {viewProducts ? (
+      {!viewProducts ? (
         <ListView unit={products} />
       ) : (
         <GridView unit={products} />

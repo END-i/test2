@@ -1,7 +1,7 @@
-import React, { Fragment, Component } from 'react'
+import React, { Fragment, Component } from "react";
 
-import Routes from './Routes'
-import GlobalStyle from './GlobalStyle'
+import Routes from "./Routes";
+import GlobalStyle from "./GlobalStyle";
 
 class App extends Component {
   render() {
@@ -10,8 +10,8 @@ class App extends Component {
         <GlobalStyle />
         <Routes />
       </Fragment>
-    )
+    );
   }
 }
 
-export default App
+export default App;

@@ -1,14 +1,19 @@
-import React, { Component } from 'react'
-import { Wrapper, Background } from './styled'
+import React from "react";
 
-class Eror extends Component {
-  render() {
-    return (
-      <Background>
-        <Wrapper>Eror</Wrapper>
-      </Background>
-    )
-  }
-}
+import { Wrapper, Background } from "./styled";
 
-export default Eror
+const Eror = () => {
+  return (
+    <Background>
+      <Wrapper>
+        <img src={require("./media/Kartinki_1117_03095305.png")} alt="" />
+        <br/>
+        Something went wrong!
+        <br/>
+        Come later
+      </Wrapper>
+    </Background>
+  );
+};
+
+export default Eror;

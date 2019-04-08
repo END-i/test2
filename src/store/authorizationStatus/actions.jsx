@@ -1,5 +1,5 @@
-export const setUser = user => ({
-  type: 'SET_USER',
+export const signIn = user => ({
+  type: 'SIGN_IN',
   payload: user,
 })
 

@@ -7,6 +7,7 @@ const GlobalStyle = createGlobalStyle`
     outline: none;
   }
   body {
+    overflow-y: scroll;
     max-width: 1200px;
     margin: 0 auto;
     padding: 0;
