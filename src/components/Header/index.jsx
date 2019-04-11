@@ -1,4 +1,4 @@
-import React, { useEffect, useCallback } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
@@ -21,21 +21,8 @@ const Header = ({
   cart
 }) => {
 
-  useEffect(() => {
-    headerRef();
-    window.onscroll = () => {
-      console.log('ww')
-    };
-  });
-
-  const headerRef = useCallback(node => {
-    if (node !== null) {
-      console.log(node);
-    }
-  });
-
   return (
-    <Wrapper ref={headerRef}>
+    <Wrapper>
       <MyLogo>
         <Link to="/">
           <img src={require("./media/car.png")} alt="" />

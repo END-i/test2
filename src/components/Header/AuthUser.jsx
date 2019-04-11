@@ -20,7 +20,6 @@ const AuthUser = ({ user, signOut, cart, getCartPurchase, cleareCart }) => {
     auth
       .signOut()
       .then(() => {
-        console.log("log out: success");
         signOut();
         cleareCart(user);
       })

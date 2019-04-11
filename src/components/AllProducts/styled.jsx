@@ -105,6 +105,7 @@ export const ProductImage = styled.div`
   margin: ${({ margin }) => margin || "0px 30px"};
   img {
     max-width: ${({ width }) => width || "100%"};
+    min-width: 100px;
   }
   div {
     position: absolute;

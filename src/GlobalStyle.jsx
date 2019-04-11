@@ -9,6 +9,7 @@ const GlobalStyle = createGlobalStyle`
   body {
     overflow-y: scroll;
     max-width: 1200px;
+    min-width: 635px;
     margin: 0 auto;
     padding: 0;
     background: #0e3d88d1;

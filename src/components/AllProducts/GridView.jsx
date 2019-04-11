@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 import { Grid, GridWrapper, Price, MyButton, ProductImage } from "./styled";
 
-const GridLayout = ({ unit, user, addToCart }) => {
+const GridLayout = ({ unit, user, addToCart, contentRef }) => {
   return (
-    <Grid>
+    <Grid ref={contentRef}>
       {unit.map(unit => (
         <GridWrapper key={unit.id}>
           <Link to={`/product_id/:${unit.id}`}>

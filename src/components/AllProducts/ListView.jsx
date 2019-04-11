@@ -12,9 +12,9 @@ import {
   ProductImage
 } from "./styled";
 
-const ListLayout = ({ unit, user, addToCart }) => {
+const ListLayout = ({ unit, user, addToCart, contentRef }) => {
   return (
-    <List>
+    <List ref={contentRef}>
       {unit.map(unit => (
         <ListWrapper key={unit.id}>
           <LeftRow>
@@ -32,10 +32,12 @@ const ListLayout = ({ unit, user, addToCart }) => {
           <RightColumn>
             <Price>{unit.price}</Price>
             {user && (
-              <MyButton onClick={() => addToCart(unit,user)}>Add to Cart</MyButton>
+              <MyButton onClick={() => addToCart(unit, user)}>
+                Add to Cart
+              </MyButton>
             )}
             <Link to={`/product_id/:${unit.id}`}>
-              <MyButton colorBg='#0b1bad78'>More</MyButton>
+              <MyButton colorBg="#0b1bad78">More</MyButton>
             </Link>
           </RightColumn>
         </ListWrapper>
