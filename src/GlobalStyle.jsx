@@ -12,6 +12,7 @@ const GlobalStyle = createGlobalStyle`
     margin: 0 auto;
     padding: 0;
     background: #0e3d88d1;
+    z-index: 999999;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
       "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
       sans-serif;

@@ -7,12 +7,12 @@ import { Wrapper, Content } from "./styled";
 import Products from "./Products";
 import Details from "./Details";
 import NotFound from "./NotFound";
-import AddNewProduct from "./AddNewProduct";
 import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
 import ModalWindowAuth from "../components/ModalWindowAuth/";
+import Cart from './Cart'
 
 import { getProducts } from "../store/products/actions";
 import { signIn } from "../store/authorizationStatus//actions";
@@ -52,7 +52,6 @@ const Routes = ({ signIn, getProducts, products }) => {
       }
     });
   };
-  console.log(isLoading, isError);
 
   if (isLoading) return <Loading loading={isLoading} />;
 
@@ -66,7 +65,7 @@ const Routes = ({ signIn, getProducts, products }) => {
           <Switch>
             <Route exact path="/" component={Products} />
             <Route strict path="/product_id/:id" component={Details} />
-            <Route exact path="/add_new_product" component={AddNewProduct} />
+            <Route exact path="/cart" component={Cart} />
             <Route exact path="/error" component={Error} />
             <Route exact strict path="/not_found" component={NotFound} />
             <Redirect from="*" to="/not_found" />>

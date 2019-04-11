@@ -1,27 +1,44 @@
-import styled from 'styled-components'
+import styled from "styled-components";
 
 export const Wrapper = styled.div`
   position: relative;
   display: flex;
   align-items: center;
+  min-height: 60px;
   color: #fff;
   background: #2196f3;
   box-shadow: 0px 2px 4px -1px rgba(0, 0, 0, 0.2),
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
-  padding: 15px;
-`
+  padding: 5px 15px;
+  z-index: 2;
+`;
 export const MyLogo = styled.div`
   flex-grow: 1;
   position: relative;
+  transition: 0.3s;
+  margin-left: ${({ margin }) => margin || 0};
   img {
-    height: 40px;
+    height: 70px;
     cursor: pointer;
+    z-index: 1;
   }
-`
+  img:last-child {
+    opacity: 0;
+    transition: all 1s ease-out 0.1s;
+  }
+  img:first-child:hover ~ img:last-of-type {
+    opacity: 1;
+  }
+`;
 export const MyButton = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: center;
   padding: 6px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
+  min-height: 60px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: #fff;
   transition: 250ms;
   border-radius: 4px;
   text-transform: uppercase;
@@ -33,72 +50,36 @@ export const MyButton = styled.div`
   :active {
     background: #ffffff2b;
   }
-`
-export const MyButtonCyrcle = styled.div`
-  padding: 6px 16px;
-  font-size: 0.875rem;
-  font-weight: 500;
-  transition: 250ms;
-  border-radius: 4px;
-  text-transform: uppercase;
-  user-select: none;
-  cursor: pointer;
-  :hover {
-    background: #00000014;
+  img {
+    max-width: 50px;
+    border-radius: ${({ radius }) => radius || "none"};
+    margin-left: 15px;
   }
-  :active {
-    background: #ffffff2b;
-  }
-`
+`;
 
-export const Cart = styled.div`
-  position: relative;
-  font-size: 30px;
-  margin: auto 10px;
-  padding: 0px 10px;
-  cursor: pointer;
-  border-radius: 5px;
-  transition: 0.2s;
-  color: #696767;
-  text-shadow: 0px 0px 1px #111;
-  :hover {
-    text-shadow: none;
-  }
-  :active {
-    text-shadow: none;
-    background: #696767;
-    color: #f9f4f4;
-  }
-  .active {
-    color: #f9f4f4;
-    background: #9c9c9c;
-  }
-  .active:hover {
-    background: #696767;
-  }
-  .active:active {
-    color: #696767;
-    background: none;
-  }
-  small {
-    position: absolute;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #111;
-    background: #fff;
-    border-radius: 100%;
-    width: 20px;
-    height: 20px;
-    font-size: 16px;
-    left: 30px;
-    top: 15p;
-  }
-`
 export const User = styled.div`
   display: flex;
   align-items: center;
-`
+`;
 export const Row = styled.div`
   display: flex;
-`
+`;
+export const Cart = styled.div`
+  position: relative;
+  span {
+    color: #fff;
+    background: #ff0101;
+    width: 20px;
+    text-align: center;
+    border-radius: 100%;
+    font-size: 18px;
+    font-weight: 700;
+    position: absolute;
+    top: -10px;
+    right: -5px;
+  }
+  img {
+    width: 30px;
+    margin: 0;
+  }
+`;

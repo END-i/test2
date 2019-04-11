@@ -1,16 +1,9 @@
-export function cartData(state = [], action) {
+export function cart(state = null, action) {
   switch (action.type) {
-    case 'CART_DATA':
-      return action.cartData
-    default:
-      return state
-  }
-}
-
-export function cartList(state = false, action) {
-  switch (action.type) {
-    case 'CART_LIST':
-      return action.cartList
+    case 'ADD_TO_CART':
+      return action.payload
+    case 'CLEARE_CART':
+      return action.payload
     default:
       return state
   }

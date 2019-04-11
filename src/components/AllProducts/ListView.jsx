@@ -1,25 +1,28 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
+import React from "react";
+import { Link } from "react-router-dom";
 
 import {
   List,
   ListWrapper,
-  MyImage,
   LeftRow,
   LeftColumn,
   RightColumn,
   MyButton,
   Price,
-} from './styled'
+  ProductImage
+} from "./styled";
 
-const ListLayout = ({ unit }) => {
+const ListLayout = ({ unit, user, addToCart }) => {
   return (
     <List>
       {unit.map(unit => (
         <ListWrapper key={unit.id}>
           <LeftRow>
             <Link to={`/product_id/:${unit.id}`}>
-              <MyImage src={unit.image} alt="image product" />
+              <ProductImage width="250px">
+                {unit.sale && <div>SALE</div>}
+                <img src={unit.image} alt="" />
+              </ProductImage>
             </Link>
             <LeftColumn>
               <h1>{unit.product_name}</h1>
@@ -28,14 +31,17 @@ const ListLayout = ({ unit }) => {
           </LeftRow>
           <RightColumn>
             <Price>{unit.price}</Price>
+            {user && (
+              <MyButton onClick={() => addToCart(unit,user)}>Add to Cart</MyButton>
+            )}
             <Link to={`/product_id/:${unit.id}`}>
-              <MyButton>More</MyButton>
+              <MyButton colorBg='#0b1bad78'>More</MyButton>
             </Link>
           </RightColumn>
         </ListWrapper>
       ))}
     </List>
-  )
-}
+  );
+};
 
-export default ListLayout
+export default ListLayout;

@@ -1,43 +1,69 @@
-import React from "react";
+import React, { useEffect, useCallback } from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 
-import { Wrapper, MyButton, MyButtonCyrcle, MyLogo } from "./styled";
+import { Wrapper, MyButton, MyLogo } from "./styled";
 
 import { openCloseModal } from "../../store/modalWindowAuth/actions";
-import { cleanUser } from "../../store/authorizationStatus/actions";
+import { toggleViewProducts } from "../../store/viewProducts/actions";
 
-const Header = ({ openModal, signOut, user }) => {
+import AuthUser from "./AuthUser";
+//
+//
+//
+
+const Header = ({
+  openModal,
+  signOut,
+  user,
+  toggleViewProducts,
+  viewProducts,
+  cart
+}) => {
+
+  useEffect(() => {
+    headerRef();
+    window.onscroll = () => {
+      console.log('ww')
+    };
+  });
+
+  const headerRef = useCallback(node => {
+    if (node !== null) {
+      console.log(node);
+    }
+  });
+
   return (
-    <Wrapper>
+    <Wrapper ref={headerRef}>
       <MyLogo>
         <Link to="/">
-          <img src={require("./media/logo2.png")} alt="" />
+          <img src={require("./media/car.png")} alt="" />
+          <img src={require("./media/car1.png")} alt="" />
         </Link>
       </MyLogo>
 
-      <MyButtonCyrcle>
-        <img
-          src={require("./media/round-account-button-with-user-inside-white.png")}
-          alt=""
-        />
-      </MyButtonCyrcle>
-      <MyButton>Toggle view</MyButton>
+      <MyButton onClick={() => toggleViewProducts(!viewProducts)}>
+        Toggle view
+      </MyButton>
+
       {user ? (
-        <MyButton onClick={() => signOut()}>Sing Out</MyButton>
+        <AuthUser />
       ) : (
-        <MyButton onClick={() => openModal(true)}>Sing In</MyButton>
+        <MyButton onClick={() => openModal(true)}>Sign In</MyButton>
       )}
     </Wrapper>
   );
 };
 
 const mapStateToProps = state => ({
-  user: state.authorizationStatus
+  user: state.authorizationStatus,
+  viewProducts: state.viewProducts
 });
+
 const mapDispatchToProps = dispatch => ({
   openModal: bool => dispatch(openCloseModal(bool)),
-  signOut: () => dispatch(cleanUser())
+  toggleViewProducts: bool => dispatch(toggleViewProducts(bool))
 });
 
 export default connect(

@@ -1,14 +1,10 @@
 import styled from "styled-components";
 
-export const Grid = styled.div`
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-`;
 export const Wrapper = styled.div`
   width: 100%;
+  display: flex;
+  flex-direction: column;
 `;
-
-export const List = styled.div``;
 
 export const ListWrapper = styled.div`
   display: flex;
@@ -24,25 +20,6 @@ export const ListWrapper = styled.div`
   transition: 0.3s;
   :hover {
     margin: 10px 5px 0;
-  }
-`;
-export const GridWrapper = styled.div`
-  margin: 10px;
-  padding: 10px;
-  align-self: auto;
-  background: #2196f3;
-  color: #fff;
-  display: grid;
-  grid-template-rows: 1fr;
-  transition: 0.3s;
-  :hover {
-    transform: scale(1.01);
-  }
-  h1 {
-    margin-bottom: 0;
-  }
-  h2:first-of-type {
-    margin: 0;
   }
 `;
 
@@ -63,6 +40,7 @@ export const LeftColumn = styled.div`
     margin-top: 0;
   }
 `;
+
 export const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
@@ -81,8 +59,10 @@ export const MyButton = styled.div`
   user-select: none;
   cursor: pointer;
   color: #fff;
-  background: ${({ colorBg }) => colorBg || "rgba(77, 144, 6, 0.5)"};
+  background: rgba(144, 79, 6, 0.5);
   text-align: center;
+  :active {
+  }
   :hover {
     background: #00000014;
     transform: scale(1.05);
@@ -92,10 +72,12 @@ export const MyButton = styled.div`
     transform: scale(0.9);
   }
 `;
+
 export const Price = styled.h2`
   color: rgb(175, 216, 25);
   background: #00000030;
   padding: 10px 20px;
+  margin: 5px;
   min-width: 100px;
   text-align: center;
 `;
@@ -104,7 +86,7 @@ export const ProductImage = styled.div`
   position: relative;
   margin: ${({ margin }) => margin || "0px 30px"};
   img {
-    max-width: ${({ width }) => width || "100%"};
+    max-width: 150px;
   }
   div {
     position: absolute;
@@ -118,4 +100,23 @@ export const ProductImage = styled.div`
     border-radius: 5px 0 0 5px;
     text-align: left;
   }
+`;
+
+export const ButtonControl = styled(MyButton)`
+  background: ${({ colorBg }) => colorBg || "rgba(144, 79, 6, 0.5)"};
+  :hover,
+  :active {
+    transform: none;
+  }
+`;
+
+export const EmptyWrapper = styled.div`
+  text-align: center;
+  font-size: 50px;
+  margin: auto;
+  color: #fff;
+  font-weight: 800;
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
 `;
