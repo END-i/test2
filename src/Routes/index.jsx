@@ -11,7 +11,6 @@ import Loading from "../components/Loading";
 import Error from "../components/Error";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import ModalWindowAuth from "../components/ModalWindowAuth/";
 import Cart from './Cart'
 
 import { getProducts } from "../store/products/actions";
@@ -73,7 +72,6 @@ const Routes = ({ signIn, getProducts, products }) => {
         </Content>
         <Footer />
       </Wrapper>
-      <ModalWindowAuth />
     </Fragment>
   );
 };
