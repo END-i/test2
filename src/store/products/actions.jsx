@@ -1,6 +1,4 @@
 export const getProducts = data => ({
-  type: 'GET_PRODUCTS',
-  payload: data || null,
-})
-
-
+  type: "GET_PRODUCTS",
+  payload: data || null
+});

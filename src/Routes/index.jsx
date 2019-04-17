@@ -19,11 +19,11 @@ import { signIn } from "../store/authorizationStatus/actions";
 
 import { firestore, auth } from "../firebase";
 
-import AnimationPage from '../components/AnimationPage'
-//
+import AnimationPage from "../components/AnimationPage";
 //
 
-const Routes = ({ signIn, getProducts, products }) => {
+const Routes = props => {
+  const { signIn, getProducts, products } = props;
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
 
@@ -68,10 +68,19 @@ const Routes = ({ signIn, getProducts, products }) => {
         <Content>
           <Switch>
             <Route exact path="/" component={Products} />
-            <Route strict path="/product_id/:id" component={AnimationPage(Details)} />
+            <Route
+              strict
+              path="/product_id/:id"
+              component={AnimationPage(Details)}
+            />
             <Route exact path="/cart" component={AnimationPage(Cart)} />
             <Route exact path="/error" component={AnimationPage(ErrorPage)} />
-            <Route exact strict path="/not_found" component={AnimationPage(NotFound)} />
+            <Route
+              exact
+              strict
+              path="/not_found"
+              component={AnimationPage(NotFound)}
+            />
             <Redirect from="*" to="/not_found" />>
           </Switch>
         </Content>

@@ -1,14 +1,8 @@
-import React, { Component } from 'react'
+import React from "react";
 
-import Purchases from '../components/Purchases'
-//
-//
+import Purchases from "../components/Purchases";
 //
 
-class Cart extends Component {
-  render() {
-    return <Purchases/>
-  }
+export default function() {
+  return <Purchases />;
 }
-
-export default Cart

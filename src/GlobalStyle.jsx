@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components'
+import { createGlobalStyle } from "styled-components";
+//
 
 const GlobalStyle = createGlobalStyle`
 * {
@@ -20,10 +21,5 @@ const GlobalStyle = createGlobalStyle`
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
   }
-
-  .none {
-    display: none !important;
-  }
-`
-
-export default GlobalStyle
+`;
+export default GlobalStyle;

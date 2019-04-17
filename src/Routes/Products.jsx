@@ -1,11 +1,8 @@
-import React, { Component } from 'react'
+import React from "react";
 
-import AllProducts from '../components/AllProducts'
+import AllProducts from "../components/AllProducts";
+//
 
-class Products extends Component {
-  render() {
-    return <AllProducts />
-  }
+export default function() {
+  return <AllProducts />;
 }
-
-export default Products

@@ -1,11 +1,7 @@
-import React, { Component } from 'react'
+import React from "react";
 
-import Description from '../components/Description'
+import Description from "../components/Description";
 
-class Details extends Component {
-  render() {
-    return <Description />
-  }
+export default function() {
+  return <Description />;
 }
-
-export default Details
