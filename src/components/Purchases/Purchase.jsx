@@ -1,4 +1,5 @@
 import React, { Fragment } from "react";
+import { Link } from "react-router-dom";
 
 import {
   ListWrapper,
@@ -7,7 +8,7 @@ import {
   RightColumn,
   MyButton,
   Price,
-  ProductImage,
+  ProductImage
 } from "./styled";
 //
 //
@@ -19,7 +20,9 @@ const purchase = ({ cart, removeItem }) => (
       <ListWrapper key={key}>
         <LeftRow>
           <ProductImage>
-            <img src={unit.image} alt="" />
+            <Link to={`/product_id/:${unit.id}`}>
+              <img src={unit.image} alt="" />
+            </Link>
           </ProductImage>
           <LeftColumn>
             <h1>{unit.product_name}</h1>

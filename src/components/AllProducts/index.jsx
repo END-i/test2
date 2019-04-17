@@ -14,32 +14,30 @@ import { addToCart } from "../../store/cart/actions";
 
 const AllProducts = ({ products, viewProducts, user, addToCart }) => {
   if (!products) return null;
-  const [count, setCount] = useState(0);
-  const [productUnit, setProductUnit] = useState(products.slice(0, count));
+  const [productUnit, setProductUnit] = useState(products.slice(0, 0));
   const contentRef = useRef();
 
   useEffect(() => {
     add();
+    window.onscroll = () => {
+      add();
+    };
   });
 
   const add = () => {
-    if (
-      contentRef.current.getBoundingClientRect().bottom < window.innerHeight
-    ) {
-      setCount(count + 1);
-      setProductUnit(products.slice(0, count + 1));
-    }
+    if (contentRef.current) {
+      let coor = contentRef.current.getBoundingClientRect().bottom;
+      let wind = window.innerHeight;
 
-    window.onscroll = async () => {
-      if (
-        contentRef.current.getBoundingClientRect().bottom - 300 <
-        window.innerHeight
-      ) {
-        await setCount(count + 1);
-        await setProductUnit(products.slice(0, count + 1));
-      }
-    };
+      setTimeout(() => {
+        if (coor < wind && productUnit.length < products.length) {
+          let num = productUnit.length + 1;
+          setProductUnit(products.slice(0, num));
+        }
+      }, 100);
+    }
   };
+
   return (
     <Wrapper>
       {viewProducts ? (
@@ -48,9 +46,16 @@ const AllProducts = ({ products, viewProducts, user, addToCart }) => {
           user={user}
           addToCart={addToCart}
           contentRef={contentRef}
+          add={add}
         />
       ) : (
-        <GridView unit={productUnit} user={user} addToCart={addToCart} contentRef={contentRef}/>
+        <GridView
+          unit={productUnit}
+          user={user}
+          addToCart={addToCart}
+          contentRef={contentRef}
+          add={add}
+        />
       )}
     </Wrapper>
   );

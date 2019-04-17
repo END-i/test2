@@ -8,15 +8,20 @@ import Products from "./Products";
 import Details from "./Details";
 import NotFound from "./NotFound";
 import Loading from "../components/Loading";
-import Error from "../components/Error";
+import ErrorPage from "../components/ErrorPage";
 import Header from "../components/Header";
 import Footer from "../components/Footer";
-import Cart from './Cart'
+import Cart from "./Cart";
+import ModalWindowAuth from "../components/ModalWindowAuth/";
 
 import { getProducts } from "../store/products/actions";
-import { signIn } from "../store/authorizationStatus//actions";
+import { signIn } from "../store/authorizationStatus/actions";
 
 import { firestore, auth } from "../firebase";
+
+import AnimationPage from '../components/AnimationPage'
+//
+//
 
 const Routes = ({ signIn, getProducts, products }) => {
   const [isLoading, setIsLoading] = useState(true);
@@ -35,13 +40,13 @@ const Routes = ({ signIn, getProducts, products }) => {
       return { ...item.data() };
     });
     getProducts(data);
-    animationLoading(data)
+    animationLoading(data);
   };
 
   const animationLoading = data => {
     setTimeout(() => {
       data ? setIsLoading(false) : setIsError(true);
-    }, 500);
+    }, 300);
   };
 
   const checkUser = () => {
@@ -54,7 +59,7 @@ const Routes = ({ signIn, getProducts, products }) => {
 
   if (isLoading) return <Loading loading={isLoading} />;
 
-  if (isError) return <Error error={isError} />;
+  if (isError) return <ErrorPage error={isError} />;
 
   return (
     <Fragment>
@@ -63,15 +68,16 @@ const Routes = ({ signIn, getProducts, products }) => {
         <Content>
           <Switch>
             <Route exact path="/" component={Products} />
-            <Route strict path="/product_id/:id" component={Details} />
-            <Route exact path="/cart" component={Cart} />
-            <Route exact path="/error" component={Error} />
-            <Route exact strict path="/not_found" component={NotFound} />
+            <Route strict path="/product_id/:id" component={AnimationPage(Details)} />
+            <Route exact path="/cart" component={AnimationPage(Cart)} />
+            <Route exact path="/error" component={AnimationPage(ErrorPage)} />
+            <Route exact strict path="/not_found" component={AnimationPage(NotFound)} />
             <Redirect from="*" to="/not_found" />>
           </Switch>
         </Content>
         <Footer />
       </Wrapper>
+      <ModalWindowAuth />
     </Fragment>
   );
 };

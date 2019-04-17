@@ -20,8 +20,11 @@ const AuthUser = ({ user, signOut, cart, getCartPurchase, cleareCart }) => {
     auth
       .signOut()
       .then(() => {
-        signOut();
-        cleareCart(user);
+        window.location = "/";
+        setTimeout(() => {
+          signOut();
+          cleareCart(user);
+        }, 500);
       })
       .catch(error => console.log("log out: error", error));
   };
@@ -46,7 +49,7 @@ const AuthUser = ({ user, signOut, cart, getCartPurchase, cleareCart }) => {
         <h5>{user.displayName || "Anonymous"}</h5>
         <img src={user.photoURL || avatar} alt="" />
       </MyButton>
-      <MyButton onClick={() => handleSignOut()}>Sign Out</MyButton>
+      <MyButton onClick={handleSignOut}>Sign Out</MyButton>
     </Fragment>
   );
 };

@@ -8,7 +8,7 @@ import { Wrapper } from "./styled";
 const PageNotFound = () => {
   return (
     <Wrapper>
-      <img src={require("./media/404.png")} alt="" />
+      <img src={require("./assets/404.png")} alt="" />
     </Wrapper>
   );
 };

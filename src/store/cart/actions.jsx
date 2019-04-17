@@ -46,6 +46,7 @@ export const removePurchaseFromCart = (key, user) => {
 };
 
 export const cleareCart = user => {
+  
   return async dispatch => {
     const docRef = await firestore.collection(user.uid).get();
     await docRef.docs.forEach(element => {
@@ -57,4 +58,5 @@ export const cleareCart = user => {
 
     dispatch(fillTheCart([]));
   };
+
 };

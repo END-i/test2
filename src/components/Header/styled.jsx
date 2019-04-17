@@ -11,6 +11,13 @@ export const Wrapper = styled.div`
     0px 4px 5px 0px rgba(0, 0, 0, 0.14), 0px 1px 10px 0px rgba(0, 0, 0, 0.12);
   padding: 5px 15px;
   z-index: 2;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  max-width: 1200px;
+  box-sizing: border-box;
 `;
 export const MyLogo = styled.div`
   flex-grow: 1;

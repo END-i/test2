@@ -21,11 +21,10 @@ export const ListWrapper = styled.div`
   color: #fff;
   box-shadow: 0px 2px 4px -1px #00000033, 0px 4px 5px 0px #00000024,
     0px 1px 10px 0px #0000001f;
-  transition: 0.3s;
-  :hover {
-    margin: 10px 5px 0;
-  }
+  transition: 3s;
+  opacity: ${({ opacity }) => opacity || 0};
 `;
+
 export const GridWrapper = styled.div`
   margin: 10px;
   padding: 10px;
@@ -34,10 +33,8 @@ export const GridWrapper = styled.div`
   color: #fff;
   display: grid;
   grid-template-rows: 1fr;
-  transition: 0.3s;
-  :hover {
-    transform: scale(1.01);
-  }
+  transition: 3s;
+  opacity: ${({ opacity }) => opacity || 0};
   h1 {
     margin-bottom: 0;
   }

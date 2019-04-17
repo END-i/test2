@@ -9,6 +9,12 @@ export const Wrapper = styled.div`
   color: #fff;
   background: #2196f3;
   padding: 10px 0;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  max-width: 1200px;
+  margin: auto;
   img{
     height: inherit;
   }
