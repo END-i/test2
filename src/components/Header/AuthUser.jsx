@@ -13,7 +13,7 @@ import { auth } from "../../firebase";
 
 const AuthUser = props => {
   const { user, signOut, cart, getCartPurchase, cleareCart } = props;
-  const avatar = require("./media/round-account-button-with-user-inside-white.png");
+  const avatar = require("./assets/avatar.png");
 
   const handleSignOut = () => {
     auth
@@ -39,7 +39,7 @@ const AuthUser = props => {
       <Link to="/cart">
         <MyButton>
           <Cart>
-            <img src={require("./media/shopping-cart.png")} alt="" />
+            <img src={require("./assets/shopping-cart.png")} alt="" />
             <span>{cart && cart.length > 0 && cart.length}</span>
           </Cart>
         </MyButton>
