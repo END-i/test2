@@ -1,4 +1,5 @@
 import styled from "styled-components";
+//
 
 export const Wrapper = styled.div`
   width: 100%;
@@ -6,6 +7,7 @@ export const Wrapper = styled.div`
   flex-direction: column;
   min-height: 100%;
 `;
+//
 
 export const ListWrapper = styled.div`
   display: flex;
@@ -23,6 +25,7 @@ export const ListWrapper = styled.div`
     margin: 10px 5px 0;
   }
 `;
+//
 
 export const LeftRow = styled.div`
   display: flex;
@@ -30,6 +33,7 @@ export const LeftRow = styled.div`
   justify-content: space-around;
   align-items: flex-start;
 `;
+//
 
 export const LeftColumn = styled.div`
   display: flex;
@@ -41,6 +45,7 @@ export const LeftColumn = styled.div`
     margin-top: 0;
   }
 `;
+//
 
 export const RightColumn = styled.div`
   display: flex;
@@ -48,6 +53,7 @@ export const RightColumn = styled.div`
   justify-content: center;
   margin: 0 50px;
 `;
+//
 
 export const MyButton = styled.div`
   padding: 10px 15px;
@@ -73,6 +79,7 @@ export const MyButton = styled.div`
     transform: scale(0.9);
   }
 `;
+//
 
 export const Price = styled.h2`
   color: rgb(175, 216, 25);
@@ -82,6 +89,7 @@ export const Price = styled.h2`
   min-width: 100px;
   text-align: center;
 `;
+//
 
 export const ProductImage = styled.div`
   position: relative;
@@ -102,6 +110,7 @@ export const ProductImage = styled.div`
     text-align: left;
   }
 `;
+//
 
 export const ButtonControl = styled(MyButton)`
   background: ${({ colorBg }) => colorBg || "rgba(144, 79, 6, 0.5)"};
@@ -110,6 +119,7 @@ export const ButtonControl = styled(MyButton)`
     transform: none;
   }
 `;
+//
 
 export const EmptyWrapper = styled.div`
   text-align: center;

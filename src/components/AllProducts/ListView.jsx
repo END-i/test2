@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 
 import {
-  List,
   ListWrapper,
   LeftRow,
   LeftColumn,
@@ -11,8 +10,10 @@ import {
   Price,
   ProductImage
 } from "./styled";
+//
 
-const Layout = ({ unit, user, addToCart }) => {
+const Layout = props => {
+  const { unit, user, addToCart } = props;
   const [isOpacity, setIsOpacity] = useState(0);
 
   useEffect(() => {
@@ -46,13 +47,14 @@ const Layout = ({ unit, user, addToCart }) => {
   );
 };
 
-const ListLayout = ({ unit, user, addToCart, contentRef }) => {
+const ListLayout = props => {
+  const { unit, contentRef, addToCart, user } = props;
   return (
-    <List ref={contentRef}>
+    <div ref={contentRef}>
       {unit.map(unit => (
-        <Layout key={unit.id} unit={unit} user={user} addToCart={addToCart} />
+        <Layout key={unit.id} unit={unit} addToCart={addToCart} user={user} />
       ))}
-    </List>
+    </div>
   );
 };
 

@@ -6,17 +6,15 @@ import {
   Wrapper,
   Price,
   RightColumn,
-  Product,
   MyButton,
   Specifications
 } from "./styled";
 
 import { addToCart } from "../../store/cart/actions";
 //
-//
-//
 
-const Description = ({ products, user, addToCart }) => {
+const Description = props => {
+  const { products, user, addToCart } = props;
   const id = window.location.pathname.replace(/\D+/g, "");
   let index, unit;
 
@@ -28,15 +26,16 @@ const Description = ({ products, user, addToCart }) => {
   }
 
   if (products && !unit) window.location.pathname = "/not_found";
+
   return (
     <Wrapper>
       <img src={unit.image} alt="car" />
       <RightColumn>
-        <Product>
+        <div>
           <h1>{unit.product_name}</h1>
           <h2>{unit.modal}</h2>
           <h2>{unit.year}</h2>
-        </Product>
+        </div>
         <Price width={user && "auto"}>
           {unit.price}
           {user && (

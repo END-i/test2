@@ -1,7 +1,10 @@
 import styled from "styled-components";
+//
 
 export const Wrapper = styled.div`
-  display: ${({ display }) => display};
+  display: ${({ display }) => display || "none"};
+  opacity: ${({ opacity }) => opacity || 0};
+  transition: 0.5s;
   position: absolute;
   top: 0;
   left: 0;
@@ -11,6 +14,8 @@ export const Wrapper = styled.div`
   margin: auto;
   z-index: 99999999;
 `;
+//
+
 export const Window = styled.div`
   position: relative;
   margin: auto;
@@ -19,6 +24,8 @@ export const Window = styled.div`
     0px 5px 8px 0px rgba(0, 0, 0, 0.14), 0px 1px 14px 0px rgba(0, 0, 0, 0.12);
   background-color: #2196f3;
 `;
+//
+
 export const MyButton = styled.div`
   font-size: 25px;
   display: flex;
@@ -42,6 +49,8 @@ export const MyButton = styled.div`
     margin-right: 20px;
   }
 `;
+//
+
 export const CloseButton = styled.span`
   position: absolute;
   width: 30px;
@@ -65,6 +74,8 @@ export const CloseButton = styled.span`
     transform: scale(0.9);
   }
 `;
+//
+
 export const Divider = styled.div`
   border-bottom: 2px solid #fff;
   position: relative;

@@ -1,13 +1,13 @@
-import React from 'react'
+import React from "react";
 
-import { Wrapper, Image } from './styled'
+import { Wrapper, Image } from "./styled";
+//
 
 const Loading = ({ loading }) => {
-   return (
+  return (
     <Wrapper>
-      <Image src={require('./477.gif')} alt="spinner" />
+      <Image src={require("./assets/477.gif")} alt="spinner" />
     </Wrapper>
-  )
-}
-
-export default Loading
+  );
+};
+export default Loading;

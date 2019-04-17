@@ -1,4 +1,5 @@
 import styled from "styled-components";
+//
 
 export const Wrapper = styled.div`
   position: relative;
@@ -19,6 +20,8 @@ export const Wrapper = styled.div`
   max-width: 1200px;
   box-sizing: border-box;
 `;
+//
+
 export const MyLogo = styled.div`
   flex-grow: 1;
   position: relative;
@@ -37,6 +40,8 @@ export const MyLogo = styled.div`
     opacity: 1;
   }
 `;
+//
+
 export const MyButton = styled.div`
   display: flex;
   flex-direction: row;
@@ -63,14 +68,19 @@ export const MyButton = styled.div`
     margin-left: 15px;
   }
 `;
+//
 
 export const User = styled.div`
   display: flex;
   align-items: center;
 `;
+//
+
 export const Row = styled.div`
   display: flex;
 `;
+//
+
 export const Cart = styled.div`
   position: relative;
   span {

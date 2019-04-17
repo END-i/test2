@@ -9,10 +9,10 @@ import { Wrapper } from "./styled";
 
 import { addToCart } from "../../store/cart/actions";
 //
-//
-//
 
-const AllProducts = ({ products, viewProducts, user, addToCart }) => {
+const AllProducts = props => {
+  const { products, viewProducts, user, addToCart } = props;
+
   if (!products) return null;
   const [productUnit, setProductUnit] = useState(products.slice(0, 0));
   const contentRef = useRef();

@@ -1,4 +1,5 @@
-import styled from 'styled-components'
+import styled from "styled-components";
+//
 
 export const Wrapper = styled.div`
   position: absolute;
@@ -10,8 +11,9 @@ export const Wrapper = styled.div`
   background-color: white;
   transition: 0.5s;
   z-index: 99999;
-`
+`;
+//
 
 export const Image = styled.img`
   margin: auto;
-`
+`;

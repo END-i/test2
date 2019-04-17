@@ -10,10 +10,9 @@ import { cleareCart } from "../../store/cart/actions";
 
 import { auth } from "../../firebase";
 //
-//
-//
 
-const AuthUser = ({ user, signOut, cart, getCartPurchase, cleareCart }) => {
+const AuthUser = props => {
+  const { user, signOut, cart, getCartPurchase, cleareCart } = props;
   const avatar = require("./media/round-account-button-with-user-inside-white.png");
 
   const handleSignOut = () => {

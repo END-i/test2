@@ -1,12 +1,13 @@
 import React from "react";
 
 import { Wrapper, Background } from "./styled";
+//
 
 const ErrorPage = () => {
   return (
     <Background>
       <Wrapper>
-        <img src={require("./assets/Kartinki_1117_03095305.png")} alt="" />
+        <img src={require("./assets/error.png")} alt="" />
         <br />
         Something went wrong!
         <br />
@@ -15,5 +16,4 @@ const ErrorPage = () => {
     </Background>
   );
 };
-
 export default ErrorPage;

@@ -2,12 +2,16 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { Grid, GridWrapper, Price, MyButton, ProductImage } from "./styled";
+//
 
-const Layout = ({ unit, user, addToCart }) => {
+const Layout = props => {
+  const { unit, user, addToCart } = props;
   const [isOpacity, setIsOpacity] = useState(0);
 
   useEffect(() => {
-    setIsOpacity(1);
+    setTimeout(() => {
+      setIsOpacity(1);
+    }, 300);
   });
 
   return (
@@ -31,11 +35,12 @@ const Layout = ({ unit, user, addToCart }) => {
   );
 };
 
-const GridLayout = ({ unit, user, addToCart, contentRef }) => {
+const GridLayout = props => {
+  const { unit, contentRef, user, addToCart } = props;
   return (
     <Grid ref={contentRef}>
       {unit.map(unit => (
-        <Layout key={unit.id} unit={unit} user={user} addToCart={addToCart} />
+        <Layout key={unit.id} unit={unit} addToCart={addToCart} user={user} />
       ))}
     </Grid>
   );

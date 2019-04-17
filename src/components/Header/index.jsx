@@ -9,26 +9,17 @@ import { toggleViewProducts } from "../../store/viewProducts/actions";
 
 import AuthUser from "./AuthUser";
 //
-//
-//
 
-const Header = ({
-  openModal,
-  signOut,
-  user,
-  toggleViewProducts,
-  viewProducts,
-  cart
-}) => {
+const Header = props => {
+  const { openModal, user, toggleViewProducts, viewProducts } = props;
   return (
     <Wrapper>
       <MyLogo>
         <Link to="/">
-          <img src={require("./media/car.png")} alt="" />
-          <img src={require("./media/car1.png")} alt="" />
+          <img src={require("./assets/car.png")} alt="" />
+          <img src={require("./assets/car1.png")} alt="" />
         </Link>
       </MyLogo>
-
       <MyButton onClick={() => toggleViewProducts(!viewProducts)}>
         Toggle view
       </MyButton>

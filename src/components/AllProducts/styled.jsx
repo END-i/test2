@@ -1,14 +1,16 @@
 import styled from "styled-components";
+//
 
 export const Grid = styled.div`
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 `;
+//
+
 export const Wrapper = styled.div`
   width: 100%;
 `;
-
-export const List = styled.div``;
+//
 
 export const ListWrapper = styled.div`
   display: flex;
@@ -24,6 +26,7 @@ export const ListWrapper = styled.div`
   transition: 3s;
   opacity: ${({ opacity }) => opacity || 0};
 `;
+//
 
 export const GridWrapper = styled.div`
   margin: 10px;
@@ -33,15 +36,20 @@ export const GridWrapper = styled.div`
   color: #fff;
   display: grid;
   grid-template-rows: 1fr;
-  transition: 3s;
+  transition: 2s;
   opacity: ${({ opacity }) => opacity || 0};
+  max-width: 250px;
   h1 {
     margin-bottom: 0;
   }
   h2:first-of-type {
     margin: 0;
   }
+  a:first-child {
+    margin: auto;
+  }
 `;
+//
 
 export const LeftRow = styled.div`
   display: flex;
@@ -49,6 +57,7 @@ export const LeftRow = styled.div`
   justify-content: space-around;
   align-items: flex-start;
 `;
+//
 
 export const LeftColumn = styled.div`
   display: flex;
@@ -60,12 +69,15 @@ export const LeftColumn = styled.div`
     margin-top: 0;
   }
 `;
+//
+
 export const RightColumn = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   margin: 0 50px;
 `;
+//
 
 export const MyButton = styled.div`
   padding: 10px 15px;
@@ -89,6 +101,8 @@ export const MyButton = styled.div`
     transform: scale(0.9);
   }
 `;
+//
+
 export const Price = styled.h2`
   color: rgb(175, 216, 25);
   background: #00000030;
@@ -96,6 +110,7 @@ export const Price = styled.h2`
   min-width: 100px;
   text-align: center;
 `;
+//
 
 export const ProductImage = styled.div`
   position: relative;

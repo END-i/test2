@@ -2,8 +2,6 @@ import React from "react";
 
 import { Wrapper } from "./styled";
 //
-//
-//
 
 const PageNotFound = () => {
   return (
@@ -12,5 +10,4 @@ const PageNotFound = () => {
     </Wrapper>
   );
 };
-
 export default PageNotFound;

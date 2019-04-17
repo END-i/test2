@@ -1,4 +1,5 @@
 import styled from "styled-components";
+//
 
 export const Wrapper = styled.div`
   background: #00000010;
@@ -11,10 +12,13 @@ export const Wrapper = styled.div`
     margin: 0 auto;
   }
 `;
+//
+
 export const RightColumn = styled.div`
   color: #fff;
 `;
-export const Product = styled.div``;
+//
+
 export const Price = styled.h1`
   display: flex;
   justify-content: space-around;
@@ -26,6 +30,8 @@ export const Price = styled.h1`
   margin: 0 auto;
   padding: 15px 15px;
 `;
+//
+
 export const MyButton = styled.div`
   padding: 10px 15px;
   margin: 5px 0;
@@ -48,6 +54,8 @@ export const MyButton = styled.div`
     transform: scale(0.9);
   }
 `;
+//
+
 export const Specifications = styled.div`
   margin-top: 50px;
   border-top: 2px solid #ffffff21;
@@ -62,4 +70,3 @@ export const Specifications = styled.div`
     border-bottom: 1px solid #00000021;
   }
 `;
-

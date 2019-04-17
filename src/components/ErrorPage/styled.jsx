@@ -1,4 +1,5 @@
 import styled from "styled-components";
+//
 
 export const Wrapper = styled.div`
   margin: auto;
@@ -11,6 +12,7 @@ export const Wrapper = styled.div`
     width: 200px;
   }
 `;
+//
 
 export const Background = styled.div`
   position: absolute;
